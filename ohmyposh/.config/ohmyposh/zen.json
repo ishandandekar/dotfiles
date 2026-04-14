@@ -1,0 +1,89 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "os": "#ACB0BE",
+    "closer": "p:os",
+    "pink": "#F5C2E7",
+    "lavender": "#B4BEFE",
+    "blue": "#89B4FA"
+  },
+  "transient_prompt": {
+    "background": "transparent",
+    "template": "❯ ",
+    "foreground_templates": [
+      "{{if gt .Code 0}}red{{end}}",
+      "{{if eq .Code 0}}mauve{{end}}"
+    ]
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "p:blue",
+          "style": "plain",
+          "template": "\u250c {{ .UserName }}@{{ .HostName }} ",
+          "type": "session"
+        },
+        {
+          "foreground": "p:pink",
+          "properties": {
+            "folder_icon": "....",
+            "home_icon": "~",
+            "style": "agnoster_short"
+          },
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "p:lavender",
+          "properties": {
+            "branch_icon": " ",
+            "cherry_pick_icon": " ",
+            "commit_icon": " ",
+            "fetch_status": false,
+            "fetch_upstream_icon": false,
+            "merge_icon": " ",
+            "no_commits_icon": " ",
+            "rebase_icon": " ",
+            "revert_icon": " ",
+            "tag_icon": " "
+          },
+          "template": "{{ .HEAD }} ",
+          "style": "plain",
+          "type": "git"
+        },
+        {
+          "type": "go",
+          "style": "powerline",
+          "foreground": "#7FD5EA",
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "foreground": "#eba0ac",
+          "template": "  {{ .Venv }} "
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "style": "plain",
+          "foreground": "p:closer",
+          "template": "\u2514 ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 3
+}
